@@ -1,0 +1,10 @@
+name: MineflowMoreActions
+main: aieuo\moreactions\Main
+version: 1.0.0
+api: 4.0.0
+load: POSTWORLD
+depend:
+  - Mineflow
+softdepend:
+  - BedrockEconomy
+author: aieuo
