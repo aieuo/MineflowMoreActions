@@ -4,16 +4,8 @@ declare(strict_types=1);
 
 namespace aieuo\moreactions;
 
-use aieuo\mineflow\flowItem\action\common\SendMessageToConsole;
-use aieuo\mineflow\flowItem\action\script\ifelse\IFAction;
-use aieuo\mineflow\flowItem\action\script\Wait;
-use aieuo\mineflow\recipe\Recipe;
 use aieuo\mineflow\utils\Language;
 use aieuo\moreactions\economy\bedrockEconomy\BedrockEconomyExtension;
-use aieuo\moreactions\economy\main\action\AddMoney;
-use aieuo\moreactions\economy\main\action\GetMoney;
-use aieuo\moreactions\economy\main\action\SetMoney;
-use aieuo\moreactions\economy\main\action\TakeMoney;
 use aieuo\moreactions\economy\main\MainEconomyExtension;
 use pocketmine\plugin\PluginBase;
 use const INI_SCANNER_RAW;
@@ -39,27 +31,6 @@ class Main extends PluginBase {
         $this->applyConfigToExtensions();
         $this->initExtensions();
         $this->activateExtensions();
-
-        $recipe = new Recipe("test100", "test100");
-        $recipe->addAction(new Wait("1"));
-        $recipe->addAction(new SendMessageToConsole("aieuooo"));
-        $recipe->addAction(new AddMoney("aieuooo", "200"));
-        $recipe->addAction(new GetMoney("aieuooo", "money"));
-        $recipe->addAction(new SendMessageToConsole("aieuooo: {money}"));
-        $recipe->addAction(new SetMoney("aieuooo", "1000"));
-        $recipe->addAction(new GetMoney("aieuooo", "money"));
-        $recipe->addAction(new SendMessageToConsole("aieuooo: {money}"));
-        $recipe->addAction(new TakeMoney("aieuooo", "100"));
-        $recipe->addAction(new GetMoney("aieuooo", "money"));
-        $recipe->addAction(new SendMessageToConsole("aieuooo: {money}"));
-        $recipe->addAction(new IFAction([
-            new TakeMoney("aieuooo", "100"),
-        ], [
-            new SendMessageToConsole("if!")
-        ]));
-        $recipe->addAction(new GetMoney("aieuooo", "money"));
-        $recipe->addAction(new SendMessageToConsole("aieuooo: {money}"));
-        $recipe->executeAllTargets();
     }
 
     private function registerDefaultExtensions(): void {
