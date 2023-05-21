@@ -75,10 +75,9 @@ abstract class GetMoneyBase extends FlowItem {
         ]);
     }
 
-    public function loadSaveData(array $content): FlowItem {
+    public function loadSaveData(array $content): void {
         $this->setPlayerName($content[0]);
         $this->setResultName($content[1]);
-        return $this;
     }
 
     public function serializeContents(): array {

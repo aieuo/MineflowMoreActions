@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace aieuo\moreactions\economy\base;
 
-use aieuo\mineflow\flowItem\FlowItem;
 use aieuo\mineflow\flowItem\FlowItemCategory;
 use aieuo\mineflow\flowItem\form\HasSimpleEditForm;
 use aieuo\mineflow\flowItem\form\SimpleEditFormBuilder;
@@ -52,10 +51,9 @@ abstract class MoneyFlowItemBase extends BaseFlowItem {
         ]);
     }
 
-    public function loadSaveData(array $content): FlowItem {
+    public function loadSaveData(array $content): void {
         $this->setPlayerName($content[0]);
         $this->setAmount($content[1]);
-        return $this;
     }
 
     public function serializeContents(): array {
