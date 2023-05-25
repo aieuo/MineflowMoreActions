@@ -7,6 +7,7 @@ namespace aieuo\moreactions;
 use aieuo\mineflow\utils\Language;
 use aieuo\moreactions\economy\bedrockEconomy\BedrockEconomyExtension;
 use aieuo\moreactions\economy\main\MainEconomyExtension;
+use aieuo\moreactions\ifplugin\IfPluginExtension;
 use pocketmine\plugin\PluginBase;
 use const INI_SCANNER_RAW;
 
@@ -36,6 +37,7 @@ class Main extends PluginBase {
     private function registerDefaultExtensions(): void {
         $this->registerExtension(new MainEconomyExtension());
         $this->registerExtension(new BedrockEconomyExtension());
+        $this->registerExtension(new IfPluginExtension());
     }
 
     public function registerExtension(Extension $extension): void {
