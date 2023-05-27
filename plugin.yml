@@ -7,4 +7,5 @@ depend:
   - Mineflow
 softdepend:
   - BedrockEconomy
+  - if
 author: aieuo
